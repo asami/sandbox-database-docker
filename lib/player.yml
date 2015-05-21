@@ -1,0 +1,47 @@
+exec: {}
+in:
+  type: file
+  path_prefix: Master.csv
+  parser:
+    charset: UTF-8
+    newline: CRLF
+    type: csv
+    delimiter: ','
+    quote: '"'
+    escape: ''
+    skip_header_lines: 1
+    columns:
+    - {name: playerID, type: string}
+    - {name: birthYear, type: long}
+    - {name: birthMonth, type: long}
+    - {name: birthDay, type: long}
+    - {name: birthCountry, type: string}
+    - {name: birthState, type: string}
+    - {name: birthCity, type: string}
+    - {name: deathYear, type: long}
+    - {name: deathMonth, type: long}
+    - {name: deathDay, type: long}
+    - {name: deathCountry, type: string}
+    - {name: deathState, type: string}
+    - {name: deathCity, type: string}
+    - {name: nameFirst, type: string}
+    - {name: nameLast, type: string}
+    - {name: nameGiven, type: string}
+    - {name: weight, type: double}
+    - {name: height, type: double}
+    - {name: bats, type: string}
+    - {name: throws, type: string}
+    - {name: debut, type: string}
+    - {name: finalGame, type: string}
+    - {name: retroID, type: string}
+    - {name: bbrefID, type: string}
+exec: {}
+out:
+  type: {{DB_SERVER_DBMS}}
+  host: {{DB_SERVER_HOST}}
+  port: {{DB_SERVER_PORT}}
+  database: {{DB_SERVER_DATABASE}}
+  user: {{DB_SERVER_USER}}
+  password: {{DB_SERVER_PASSWORD}}
+  table: player
+  mode: insert
